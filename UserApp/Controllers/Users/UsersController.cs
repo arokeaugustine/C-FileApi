@@ -23,6 +23,21 @@ public class UsersController:Controller
         List<UserModel> users = await _userService.GetUsers().ConfigureAwait(false);
         return View(users);
     }
+
+    [HttpGet]
+    public async Task<IActionResult> GetJson()
+    {
+        List<UserModel> users = await _userService.GetUsers().ConfigureAwait(false);
+        List<UserModel> result = (from userModel in users
+                                    select new UserModel{
+                                        Id = userModel.Id,
+                                        FirstName = userModel.FirstName,
+                                        LastName = userModel.LastName,
+                                        Email = userModel.Email,
+                                        PhoneNumber = userModel.PhoneNumber
+                                    }).ToList();
+        return Json(result);
+    }
     public async Task<IActionResult> ReportDetails(int id)
     {
         var user= await _userService.UserDetail(id).ConfigureAwait(false);

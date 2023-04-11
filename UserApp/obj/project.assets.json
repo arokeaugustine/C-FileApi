@@ -89,19 +89,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LENOVO\\.nuget\\packages\\": {}
+    "C:\\Users\\Austin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LENOVO\\Documents\\C-FileApi\\UserApp\\UserApp.csproj",
+      "projectUniqueName": "C:\\Users\\Austin\\Documents\\C-FileApi\\UserApp\\UserApp.csproj",
       "projectName": "UserApp",
-      "projectPath": "C:\\Users\\LENOVO\\Documents\\C-FileApi\\UserApp\\UserApp.csproj",
-      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LENOVO\\Documents\\C-FileApi\\UserApp\\obj\\",
+      "projectPath": "C:\\Users\\Austin\\Documents\\C-FileApi\\UserApp\\UserApp.csproj",
+      "packagesPath": "C:\\Users\\Austin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Austin\\Documents\\C-FileApi\\UserApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Austin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -155,7 +155,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

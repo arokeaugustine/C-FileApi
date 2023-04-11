@@ -1,7 +1,68 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
+@* <script src="~/lib/jquery/dist/jquery.min.js"></script> *@
 <h1>
     Welcome to Augustine's user App
 </h1>
+
+
+
+@{
+    ViewData["Title"] = "Report Page";
+}
+
+<h3>Users Informations</h3>
+
+<table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody class="tbody">
+
+        </tbody>
+</table>
+
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function() {
+            loadUsers();
+           });
+
+            function loadUsers() {
+                $.ajax({
+                    async:true,
+                    url: 'Users/GetJson',
+                    type: "GET",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "JSON",
+                    success: function(response) {
+                        var html = '';
+                        $.each(response, function(key, value) {
+                            html += '<tr>';
+                            html += '<td>'+ value.FirstName + '</td>';
+                            html += '<td>' + value.LastName + '</td>';
+                            html += '<td>' + value.PhoneNumber + '</td>';
+                            html += '<td>' + value.Email + '</td>';
+                            html += '</tr>';
+
+                        });
+                          $('.tbody').html(html)
+                    },
+                    error: function(){
+                        alert("There was an error getting the data from the server");
+                    }
+                    
+                });
+            }
+    </script>
+}
+ 

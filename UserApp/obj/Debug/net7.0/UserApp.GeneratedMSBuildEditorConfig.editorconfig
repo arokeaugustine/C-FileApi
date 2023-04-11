@@ -9,41 +9,41 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = UserApp
 build_property.RootNamespace = UserApp
-build_property.ProjectDir = c:\Users\LENOVO\Documents\C-FileApi\UserApp\
+build_property.ProjectDir = C:\Users\Austin\Documents\C-FileApi\UserApp\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\LENOVO\Documents\C-FileApi\UserApp
+build_property.MSBuildProjectDirectory = C:\Users\Austin\Documents\C-FileApi\UserApp
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/LENOVO/Documents/C-FileApi/UserApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Austin/Documents/C-FileApi/UserApp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/LENOVO/Documents/C-FileApi/UserApp/Views/Users/Home.cshtml]
+[C:/Users/Austin/Documents/C-FileApi/UserApp/Views/Users/Home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSG9tZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/LENOVO/Documents/C-FileApi/UserApp/Views/Users/Register.cshtml]
+[C:/Users/Austin/Documents/C-FileApi/UserApp/Views/Users/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/LENOVO/Documents/C-FileApi/UserApp/Views/Users/Report.cshtml]
+[C:/Users/Austin/Documents/C-FileApi/UserApp/Views/Users/Report.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUmVwb3J0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/LENOVO/Documents/C-FileApi/UserApp/Views/Users/ReportDetails.cshtml]
+[C:/Users/Austin/Documents/C-FileApi/UserApp/Views/Users/ReportDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUmVwb3J0RGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/LENOVO/Documents/C-FileApi/UserApp/Views/_ViewImports.cshtml]
+[C:/Users/Austin/Documents/C-FileApi/UserApp/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/LENOVO/Documents/C-FileApi/UserApp/Views/_ViewStart.cshtml]
+[C:/Users/Austin/Documents/C-FileApi/UserApp/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/LENOVO/Documents/C-FileApi/UserApp/Views/Shared/_Layout.cshtml]
+[C:/Users/Austin/Documents/C-FileApi/UserApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-gz4yul09fm

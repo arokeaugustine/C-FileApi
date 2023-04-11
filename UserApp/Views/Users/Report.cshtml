@@ -22,10 +22,7 @@
             @foreach (var user in Model)
             {
                 <tr scope="row">
-                    @* <input type="hidden" value="@user.Id"> *@
-                    @* <td>
-                        @user.Id
-                    </td>  *@
+                  
                     <td>
                         @user.FirstName
                     </td>
@@ -39,16 +36,10 @@
                         @user.Email
                     </td>
                     <td>
-                        @* <a  class="btn btn-success" asp-id="@user.Id">Update User</a> *@
-                        @* <a asp-controller="Users" asp-action="DeleteUser"  class="btn btn-danger">Delete User</a>  *@
-                          
-                          <p class="btn btn-danger text-white">
-                            @Html.ActionLink("Delete User", "DeleteUser", new { id = user.Id })
-                          </p> 
-                           <p class="btn btn-primary text-white">
-                            @Html.ActionLink("User Details", "ReportDetails", new { id = user.Id })
-                          </p> 
-                        
+                        <div>
+                            <a class="btn btn-success" asp-controller="Users" asp-action="ReportDetails" asp-route-id="@user.Id">Edit User</a>
+                            <a class="btn btn-danger" asp-controller="Users" asp-action="DeleteUser" asp-route-id="@user.Id">Delete User</a>
+                        </div>
                     </td>
                 
                 </tr>
@@ -56,3 +47,20 @@
         </tbody>
     </table>
 </div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function() {
+            $ajax({
+                type: "POST",
+                url: 'Users/Register',
+                dataType: "json",
+                success: function(result) {
+
+                }
+            }));
+    </script>
+}
+    
+   
+
