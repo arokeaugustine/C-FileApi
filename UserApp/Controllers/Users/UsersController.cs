@@ -44,8 +44,15 @@ public class UsersController:Controller
         return View(user);
     }
 
-    public async Task<IActionResult> Register(UserModel userModel)
+    [HttpPost]
+    public async Task<IActionResult> Register(UserModel newuserModel)
     {
+        UserModel userModel = new UserModel();
+        userModel.FirstName = newuserModel.FirstName;
+        userModel.LastName = newuserModel.LastName;
+        userModel.PhoneNumber = newuserModel.PhoneNumber;
+        userModel.Email = newuserModel.Email;
+
         var response = await _userService.CreateUser(userModel).ConfigureAwait(false);
         if (response.ResponseStatus == true)
         {   

@@ -31,38 +31,3 @@
 
 
 
-@section Scripts{
-    <script>
-        $(document).ready(function() {
-            loadUsers();
-           });
-
-            function loadUsers() {
-                $.ajax({
-                    async:true,
-                    url: 'Users/GetJson',
-                    type: "GET",
-                    contentType: "application/json;charset=utf-8",
-                    dataType: "JSON",
-                    success: function(response) {
-                        var html = '';
-                        $.each(response, function(key, value) {
-                            html += '<tr>';
-                            html += '<td>'+ value.FirstName + '</td>';
-                            html += '<td>' + value.LastName + '</td>';
-                            html += '<td>' + value.PhoneNumber + '</td>';
-                            html += '<td>' + value.Email + '</td>';
-                            html += '</tr>';
-
-                        });
-                          $('.tbody').html(html)
-                    },
-                    error: function(){
-                        alert("There was an error getting the data from the server");
-                    }
-                    
-                });
-            }
-    </script>
-}
- 

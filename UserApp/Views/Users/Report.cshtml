@@ -3,11 +3,13 @@
     ViewData["Title"] = "Report Page";
 }
 
+
 <h3>
     Users' Table
 </h3>
 
 <div>
+    <button class="btn btn-primary" onclick="openAdd()";>Add user</button>
     <table class="table table-striped">
         <thead class="thead-dark">
             <tr>
@@ -36,9 +38,20 @@
                         @user.Email
                     </td>
                     <td>
-                        <div>
-                            <a class="btn btn-success" asp-controller="Users" asp-action="ReportDetails" asp-route-id="@user.Id">Edit User</a>
-                            <a class="btn btn-danger" asp-controller="Users" asp-action="DeleteUser" asp-route-id="@user.Id">Delete User</a>
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" >
+                                Dropdown link
+                            </a>
+
+                            <ul class="dropdown-menu">
+                            <a class="dropdown-item" data-toggle="modal" data-target="#deleteModal"  >Delete user</a>
+                            
+                            <button class="dropdown-item" onclick="openModal('@user.FirstName', '@user.LastName', '@user.Email', '@user.PhoneNumber')";> View Details</button>
+                        </ul>
+                        </div>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownmenuLink">
+                           
                         </div>
                     </td>
                 
@@ -48,19 +61,53 @@
     </table>
 </div>
 
-@section Scripts{
-    <script>
-        $(document).ready(function() {
-            $ajax({
-                type: "POST",
-                url: 'Users/Register',
-                dataType: "json",
-                success: function(result) {
-
-                }
-            }));
-    </script>
-}
     
-   
 
+<div class="modal" id="detailModal">
+    <div class="modal-dialog">"
+        <div class="modal-content">
+            <div class="modal-header">
+                <p id="firstName"></p>
+                <p id="lastName"></p>
+                <p id="email"></p>
+                <p id="phoneNumber"></p>
+
+                <button type="button" onclick="closeModal()";> Close</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@* add modal *@
+  
+<div class="modal" id="addModal">
+    <div class="modal-dialog">"
+        <div class="modal-content">
+            
+            <form  method="Post" class="m-5">
+        
+            <div class="form-group">
+                <input id="myFirstName" type="text" placeholder="First Name" class="form-control mt-2">
+                <input id="myLastName" type="text" placeholder="Last Name" class="form-control mt-2">
+                <input id="myPhoneNumber" type="text" placeholder="PhoneNumber" class="form-control mt-2">
+                <input id="myEmail" type="text" placeholder="Email" class="form-control mt-2">
+            </div>
+        
+        <button class="btn btn-success mt-3" onclick="addUser()";>Submit</button>
+      
+
+        </form>
+
+                <button type="button" onclick="closeModal()";> Close</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
