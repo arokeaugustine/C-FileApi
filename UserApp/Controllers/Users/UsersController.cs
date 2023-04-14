@@ -43,27 +43,24 @@ public class UsersController:Controller
         var user= await _userService.UserDetail(id).ConfigureAwait(false);
         return View(user);
     }
+     public async Task<IActionResult> JsonReportDetails(int id)
+    {
+        var user= await _userService.UserDetail(id).ConfigureAwait(false);
+        return Json(user);
+    }
 
     [HttpPost]
-    public async Task<IActionResult> Register(UserModel newuserModel)
+    public async Task<IActionResult> Register(UserModel userModel)
     {
-        UserModel userModel = new UserModel();
-        userModel.FirstName = newuserModel.FirstName;
-        userModel.LastName = newuserModel.LastName;
-        userModel.PhoneNumber = newuserModel.PhoneNumber;
-        userModel.Email = newuserModel.Email;
-
         var response = await _userService.CreateUser(userModel).ConfigureAwait(false);
-        if (response.ResponseStatus == true)
-        {   
-            TempData["MsgType"] = "success";
-        }
-        else{
-            TempData["MsgType"] = "failure";
-        }
-        
-        TempData["Message"] = response.ResponseMessage;
-        return View("Register");
+        return RedirectToAction("Report");
+    }
+
+     [HttpPost]
+    public async Task<IActionResult> RegisterJson(UserModel userModel)
+    {
+        var response = await _userService.CreateUser(userModel).ConfigureAwait(false);
+        return RedirectToAction("Report");
     }
 
     public async Task<IActionResult> DeleteUser(int id)

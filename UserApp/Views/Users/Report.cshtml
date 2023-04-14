@@ -47,6 +47,7 @@
                             <a class="dropdown-item" data-toggle="modal" data-target="#deleteModal"  >Delete user</a>
                             
                             <button class="dropdown-item" onclick="openModal('@user.FirstName', '@user.LastName', '@user.Email', '@user.PhoneNumber')";> View Details</button>
+                            <button class="dropdown-item" onclick="editUser('@user.Id','@user.FirstName', '@user.LastName', '@user.Email', '@user.PhoneNumber')";> Edit User</button>
                         </ul>
                         </div>
 
@@ -83,7 +84,7 @@
 </div>
 
 @* add modal *@
-  
+@*   
 <div class="modal" id="addModal">
     <div class="modal-dialog">"
         <div class="modal-content">
@@ -91,23 +92,20 @@
             <form  method="Post" class="m-5">
         
             <div class="form-group">
-                <input id="myFirstName" type="text" placeholder="First Name" class="form-control mt-2">
-                <input id="myLastName" type="text" placeholder="Last Name" class="form-control mt-2">
-                <input id="myPhoneNumber" type="text" placeholder="PhoneNumber" class="form-control mt-2">
-                <input id="myEmail" type="text" placeholder="Email" class="form-control mt-2">
+                <input name="FirstName" type="text" placeholder="First Name" class="form-control mt-2">
+                <input name="LastName" type="text" placeholder="Last Name" class="form-control mt-2">
+                <input name="PhoneNumber" type="text" placeholder="PhoneNumber" class="form-control mt-2">
+                <input name="Email" type="text" placeholder="Email" class="form-control mt-2">
             </div>
         
-        <button class="btn btn-success mt-3" onclick="addUser()";>Submit</button>
+            <button class="btn btn-success mt-3" onclick="addUser()";>Submit</button>
       
 
         </form>
-
-                <button type="button" onclick="closeModal()";> Close</button>
-
             </div>
 
         </div>
 
     </div>
 
-</div>
+</div> *@

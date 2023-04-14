@@ -61,12 +61,20 @@ $(document).ready(function() {
             dataType: "JSON",
             success: function(response) {
                 var html = '';
+                console.log(response);
                 $.each(response, function(key, value) {
                     html += '<tr>';
-                    html += '<td>'+ value.FirstName + '</td>';
-                    html += '<td>' + value.LastName + '</td>';
-                    html += '<td>' + value.PhoneNumber + '</td>';
-                    html += '<td>' + value.Email + '</td>';
+                    html += '<td>'+ value.firstName + '</td>';
+                    html += '<td>' + value.lastName + '</td>';
+                    html += '<td>' + value.phoneNumber + '</td>';
+                    html += '<td>' + value.email + '</td>';  
+                    var id = value.id;
+                    var firstName = value.firstName;
+                    var lastName = value.lastName;
+                    var email = value.email;
+                    var phoneNumber = value.phoneNumber;
+                    let me ={id, firstName, lastName, email, phoneNumber};
+                    html += '<td><input type="button" class="btn btn-primary" value="Details" onclick="viewUser('+id+')" /><input type="button" class="btn btn-secondary mx-1" value="Edit User" onclick="editUser('+me+')" /></td>' 
                     html += '</tr>';
 
                 });
@@ -102,20 +110,23 @@ function openAdd(){
 
 function addUser()
 {
-       
+       alert($('input[name="FirstName"]').val());
+       alert($('input[name="LastName"]').val());
+       alert($('input[name="PhoneNumber"]').val());
+       alert($('input[name="Email"]').val());
     $.ajax({
         // async:true,
         method: 'POST',
-        url: '/Users/Register',
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'JSON',
+        // url: '/Users/Register',
+        url: 'Users/RegisterJson',
         data: {
-            FirstName: $('#myFirstName').val(),
-            LastName : $('#myLastName').val(),
-            PhoneNumber : $('#myPhoneNumber').val(),
-            Email : $('#myEmail').val()
+            FirstName: $('input[name="FirstName"]').val(),
+            LastName : $('input[name="LastName"]').val(),
+            PhoneNumber : $('input[name="PhoneNumber"]').val(),
+            Email : $('input[name="Email"]').val()
         },
         success: function(response) {
+            loadUsers();
             alert('added user');
         },
         error: function(){
@@ -124,6 +135,36 @@ function addUser()
 
 
     });
-    console.log(newuserModel);
+    }
+
+function viewUser(id) {
+    console.log(id);
+    $.ajax({
+        method: 'POST',
+        url: '/Users/JsonReportDetails',
+        data: {id:id},
+        success:function(response) {
+            console.log(response);
+            $('#detailsFirstName').text(response.firstName);
+            $('#detailsLastName').text(response.lastName);
+            $('#detailsPhoneNumber').text(response.phoneNumber);
+            $('#detailsEmail').text(response.email);
+
+            $('#detailsModal').modal('show');
+            
+            
+        },
+        error: function(){
+            console.log("Error getting the report");
+        }
+    });
 }
-console.log(newuserModel);
+
+function editUser(id,firstName,lastName,phoneNumber,email) {
+    console.log(id);
+    console.log(firstName);
+    console.log(lastName);
+    console.log(phoneNumber);
+    console.log(email);
+   
+}
