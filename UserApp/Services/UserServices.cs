@@ -11,6 +11,7 @@ public interface IUserService
     Task<ResponseModel> CreateUser(UserModel userModel);
     Task<ResponseModel> DeleteUser(int userid);
     Task<UserModel> UserDetail(int userid);
+    Task<ResponseModel> UpdateUser(UserModel userModel);
 }
 
 public class UserService : IUserService
@@ -116,5 +117,29 @@ public class UserService : IUserService
         return null;
     }
 
+    public async Task<ResponseModel> UpdateUser(UserModel userModel)
+    {
+        string? baseuri = _configuration.GetSection("APIUrls").GetSection("UserApiBaseUrl").Value;
+        string? endpointuri = _configuration.GetSection("APIUrls").GetSection("UpdateUsersDetailsUrl").Value;
+        string requesturi = baseuri + endpointuri;
+        RestClient client = new RestClient(requesturi);
+        var request = new RestRequest(requesturi, Method.Post);
+        request.AddJsonBody(userModel);
+        request.RequestFormat = DataFormat.Json;
+        
+        try
+        {
+            var response = await client.ExecuteAsync(request).ConfigureAwait(false);
+            var result = JsonConvert.DeserializeObject<ResponseModel?>(response.Content);
+            return result;
+        
+        }
+        catch (Exception ex)
+        {
+            ex.ToString();
+        }
+        return null;
+
+    }
 
 }

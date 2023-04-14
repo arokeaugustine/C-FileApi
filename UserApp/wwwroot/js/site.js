@@ -50,7 +50,7 @@
 // }
 
 $(document).ready(function() {
-    loadUsers();
+    // loadUsers();
    });
     function loadUsers() {
         $.ajax({
@@ -166,5 +166,37 @@ function editUser(id,firstName,lastName,phoneNumber,email) {
     console.log(lastName);
     console.log(phoneNumber);
     console.log(email);
+
+    $('#idInput').val(id);
+    $('#firstNameInput').val(firstName);
+    $('#lastNameInput').val(lastName);
+    $('#phoneNumberInput').val(phoneNumber);
+    $('#emailInput').val(email);
+    $('#editModal').modal('show');   
+}
+function submitEdit(){
+    console.log($('#idInput').val());
+    console.log( $('#firstNameInput').val());
+    console.log($('#lastNameInput').val());
+    console.log($('#phoneNumberInput').val());
+    console.log($('#emailInput').val());
+
+    $.ajax({
+        method: 'POST',
+        url: '/Users/UpdateUser',
+        data:{
+            Id: $('#idInput').val(),
+            FirstName: $('#firstNameInput').val(),
+            LastName: $('#lastNameInput').val(),
+            PhoneNumber: $('#phoneNumberInput').val(),
+            Email: $('#emailInput').val(),
+        },
+        success: function (response) {
+            console.log(response);
+        },
+        error: function(){
+            console.log("Error updating user");
+        }
+    });
    
 }

@@ -72,4 +72,13 @@ public class UsersController:Controller
         }
         return RedirectToAction("Home");
     }
+
+    public async Task<IActionResult> UpdateUser(UserModel userModel)
+    {
+        var response = await _userService.UpdateUser(userModel).ConfigureAwait(false);
+
+        return Json(response);
+    }
 }
+
+
