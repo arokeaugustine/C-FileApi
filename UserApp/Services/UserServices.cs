@@ -117,14 +117,14 @@ public class UserService : IUserService
         return null;
     }
 
-    public async Task<ResponseModel> UpdateUser(UserModel userModel)
+    public async Task<ResponseModel> UpdateUser(UserModel user)
     {
         string? baseuri = _configuration.GetSection("APIUrls").GetSection("UserApiBaseUrl").Value;
         string? endpointuri = _configuration.GetSection("APIUrls").GetSection("UpdateUsersDetailsUrl").Value;
         string requesturi = baseuri + endpointuri;
         RestClient client = new RestClient(requesturi);
         var request = new RestRequest(requesturi, Method.Post);
-        request.AddJsonBody(userModel);
+        request.AddJsonBody(user);
         request.RequestFormat = DataFormat.Json;
         
         try
