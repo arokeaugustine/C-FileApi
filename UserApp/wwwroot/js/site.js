@@ -1,55 +1,4 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
-
-
-// $(document).ready(function() {
-//     openModal(firstName, lastName, email, phoneNumber);
-//     closeModal();
-//     add();
-
-// });
-
-// function openModal(firstName, lastName, email, phoneNumber) {
-//     $('#firstName').text(firstName);
-//     $('#lastName').text(lastName);
-//     $('#email').text(email);
-//     $('#phoneNumber').text(phoneNumber);
-//     $('#detailModal').modal('show');
-
-// }
-
-// function closeModal() {
-//     $('#detailModal').modal('hide');
-// }
-
-// function add()
-// {
-//     var newuserModel = {
-//         FirstName: $('#myfirstName').val(),
-//         LastName: $('#mylastName').val(),
-//         PhoneNumber: $('my#phoneNumber').val(),
-//         Email: $('#myemail').val()
-//         }
-
-//     $.ajax({
-//         async:true,
-//         url: '/Users/Register',
-//         type: 'POST',
-//         contentType: 'application/json;charset=utf-8',
-//         dataType: 'JSON',
-//         data: JSON.stringify(newuserModel),
-//         success: function(response) {
-//             alert('added user');
-//         },
-//         error: function(){
-//             alert('Error adding user');
-//         }
-//     });
-// }
-
-$(document).ready(function() {
+﻿$(document).ready(function() {
     // loadUsers();
    });
     function loadUsers() {
@@ -101,12 +50,9 @@ function closeModal() {
     $('#detailModal').modal('hide');
 }
 
-
 function openAdd(){
     $('#addModal').modal('show');
 }
-
-
 
 function addUser()
 {
@@ -135,7 +81,7 @@ function addUser()
 
 
     });
-    }
+  }
 
 function viewUser(id) {
     console.log(id);
@@ -200,3 +146,11 @@ function submitEdit(){
     });
    
 }
+
+// let deleteid = 
+function openDelete(id){
+    $('#userToDelete').text(id);
+    console.log($('#userToDelete').val());
+    $('#deleteModal').modal('show');
+}
+let 

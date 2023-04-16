@@ -44,7 +44,7 @@
                             </a>
 
                             <ul class="dropdown-menu">
-                            <a class="dropdown-item" data-toggle="modal" data-target="#deleteModal"  >Delete user</a>
+                            <a class="dropdown-item" onclick="openDelete('@user.Id')";>Delete user</a>
                             
                             <button class="dropdown-item" onclick="openModal('@user.FirstName', '@user.LastName', '@user.Email', '@user.PhoneNumber')";> View Details</button>
                             <button class="dropdown-item" onclick="editUser('@user.Id','@user.FirstName', '@user.LastName', '@user.Email', '@user.PhoneNumber')";> Edit User</button>
@@ -129,6 +129,28 @@
 
                 <input type="submit" class="btn btn-primary" onclick="submitEdit()";>
             </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@* delete modal *@
+    
+
+<div class="modal" id="deleteModal">
+    <div class="modal-dialog">"
+        <div class="modal-content">
+            <div class="modal-header">
+               <h3>
+                Do you wish to delete this User?? 
+               </h3>
+               <p id="userToDelete"></p>
+               <div>
+                <input type="submit" value="Yes" class="btn btn-danger" onclick="">
+               </div>
+            </div>
 
         </div>
 
